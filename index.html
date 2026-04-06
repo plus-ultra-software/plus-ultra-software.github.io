@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plus Ultra Software — Custom software development and professional services. Further, Faster, Smarter." />
+  <title>Plus Ultra Software</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER
+       ============================================================ -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+    <div class="cookie-banner__icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+    <p class="cookie-banner__text" data-i18n="cookie.msg">
+      <strong>We use cookies.</strong> We use cookies to improve your experience on our site. You can accept all cookies or reject non-essential ones.
+    </p>
+    <div class="cookie-banner__actions">
+      <button class="cookie-btn cookie-btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accept All</button>
+      <button class="cookie-btn cookie-btn--reject" id="cookieReject" data-i18n="cookie.reject">Reject Non-Essential</button>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="pus-nav" id="navbar" role="navigation" aria-label="Main navigation">
+
+    <!-- Logo -->
+    <a href="#home" class="pus-logo" aria-label="Plus Ultra Software — Home">
+      <img src="assets/orbit-mark.svg" class="pus-logo__mark" alt="Plus Ultra orbit mark" width="42" height="42" />
+      <div class="pus-logo__text">
+        <span class="pus-logo__name">Plus Ultra</span>
+        <span class="pus-logo__sub">Software</span>
+      </div>
+    </a>
+
+    <!-- Right controls: language + hamburger -->
+    <div class="pus-nav__controls">
+
+      <!-- Language switcher -->
+      <div class="pus-lang" id="langSwitcher">
+        <button class="pus-lang__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch language">
+          <span data-i18n="lang.label">EN</span>
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <polyline points="2,3 5,7 8,3"/>
+          </svg>
+        </button>
+        <ul class="pus-lang__dropdown" role="listbox" id="langDropdown" aria-label="Select language">
+          <li role="option">
+            <button data-lang="en" class="active">English (EN)</button>
+          </li>
+          <li role="option">
+            <button data-lang="is">Íslenska (IS)</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hamburger -->
+      <button
+        class="pus-hamburger"
+        id="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="drawer"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       SLIDE-OUT DRAWER
+       ============================================================ -->
+  <div class="pus-drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+    <div class="pus-drawer__overlay" id="drawerOverlay" aria-hidden="true"></div>
+    <div class="pus-drawer__panel">
+      <div class="pus-drawer__header">
+        <span class="pus-drawer__brand" data-i18n="drawer.menu">Menu</span>
+        <button class="pus-drawer__close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="pus-drawer__links">
+        <li><a href="#home"     data-i18n="nav.home">Home</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#about"    data-i18n="nav.about">About Us</a></li>
+        <li><a href="#contact"  data-i18n="nav.contact">Contact Us</a></li>
+      </ul>
+      <div class="pus-drawer__divider"></div>
+      <p class="pus-drawer__footer">plus ultra software &mdash; 2026</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main>
+
+    <!-- ── HOME / HERO ── -->
+    <section id="home" class="grid-bg">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <!-- Large decorative orbit mark -->
+      <div class="hero__orb" aria-hidden="true">
+        <svg viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <circle cx="38" cy="38" r="30" stroke="#2B7DE9" stroke-width="2.5"/>
+          <rect x="20" y="35" width="36" height="6" rx="3" fill="#2B7DE9"/>
+          <rect x="35" y="20" width="6" height="36" rx="3" fill="#2B7DE9"/>
+          <circle cx="38" cy="8" r="5" fill="#2B7DE9"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow">Software &amp; Professional Services</p>
+          <h1 class="hero__title">
+            <span data-i18n="hero.line1">Go Further.</span><br>
+            <span style="color:var(--blue);" data-i18n="hero.line2">Move Faster.</span><br>
+            <span data-i18n="hero.line3">Think Smarter.</span>
+          </h1>
+          <p class="hero__sub" data-i18n="hero.sub">We build software and deliver professional services that help organisations reach further than they thought possible.</p>
+          <a href="#services" class="hero__cta">
+            <span data-i18n="hero.cta">Discover Our Services</span>
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="1" y1="7" x2="13" y2="7"/>
+              <polyline points="8,2 13,7 8,12"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SERVICES ── -->
+    <section id="services" class="section section--alt">
+      <div class="container">
+        <span class="section__label" data-i18n="services.label">What We Do</span>
+        <h2 class="section__title" data-i18n="services.title">Our Services</h2>
+        <p class="section__sub" data-i18n="services.sub">Tailored software and consulting built around your goals.</p>
+
+        <div class="services__grid">
+
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="svc1.title">Custom Software Development</h3>
+            <p class="service-card__desc" data-i18n="svc1.desc">Bespoke applications designed and engineered from the ground up to solve your specific challenges.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="svc2.title">Professional Services</h3>
+            <p class="service-card__desc" data-i18n="svc2.desc">Expert consulting, project delivery, and technical leadership to accelerate your most critical initiatives.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="svc3.title">Digital Transformation</h3>
+            <p class="service-card__desc" data-i18n="svc3.desc">End-to-end strategy and execution to modernise your systems, processes, and ways of working.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <div class="container">
+        <span class="section__label" data-i18n="about.label">Our Story</span>
+        <h2 class="section__title" data-i18n="about.title">About Us</h2>
+
+        <div class="about__grid">
+          <div class="about__body">
+            <p data-i18n="about.p1">Plus Ultra Software was founded on a simple belief: great software changes everything. We combine deep technical expertise with genuine business understanding to deliver solutions that move organisations forward.</p>
+            <p data-i18n="about.p2">Our name is drawn from the Latin motto meaning "further beyond" — a commitment to going past the limits of what seems possible, every time.</p>
+          </div>
+
+          <div class="about__values">
+            <div class="value-card">
+              <p class="value-card__title" data-i18n="val1.title">Quality First</p>
+              <p class="value-card__desc" data-i18n="val1.desc">We hold ourselves to the highest standards in every line of code and every deliverable.</p>
+            </div>
+            <div class="value-card">
+              <p class="value-card__title" data-i18n="val2.title">Client-Centred</p>
+              <p class="value-card__desc" data-i18n="val2.desc">We align fully with your goals and measure our success by your outcomes.</p>
+            </div>
+            <div class="value-card">
+              <p class="value-card__title" data-i18n="val3.title">Always Improving</p>
+              <p class="value-card__desc" data-i18n="val3.desc">We invest continuously in our people, tools, and processes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <span class="section__label" data-i18n="contact.label">Get In Touch</span>
+        <h2 class="section__title" data-i18n="contact.title">Contact Us</h2>
+        <p class="section__sub" data-i18n="contact.sub">Tell us about your project and we'll get back to you within one business day.</p>
+
+        <div class="contact__grid">
+          <form class="contact__form" onsubmit="return false;" novalidate>
+            <div class="form-group">
+              <label for="formName" data-i18n="form.name">Full Name</label>
+              <input id="formName" type="text" name="name" autocomplete="name" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="formEmail" data-i18n="form.email">Email Address</label>
+              <input id="formEmail" type="email" name="email" autocomplete="email" required aria-required="true" />
+            </div>
+            <div class="form-group">
+              <label for="formPhone" data-i18n="form.phone">Phone Number</label>
+              <input id="formPhone" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+354 588 5522" pattern="[+0-9 ()-]{7,20}" />
+            </div>
+            <div class="form-group">
+              <label for="formMessage" data-i18n="form.message">Message</label>
+              <textarea id="formMessage" name="message" rows="5"></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <span data-i18n="form.submit">Send Message</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="1" y1="7" x2="13" y2="7"/>
+                <polyline points="8,2 13,7 8,12"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="pus-footer">
+    <span class="pus-footer__copy" data-i18n="footer.copy">© 2026 Plus Ultra Software. All rights reserved.</span>
+    <img src="assets/orbit-mark.svg" class="pus-footer__mark" alt="Plus Ultra mark" width="28" height="28" aria-hidden="true" />
+  </footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
