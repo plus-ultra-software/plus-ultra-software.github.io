@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>404 — Page Not Found | Plus Ultra Software</title>
+  <link rel="icon" href="assets/favicon.ico" />
+  <style>
+    @import url("https://cdn.jsdelivr.net/npm/@fontsource/montserrat/400.css");
+    @import url("https://cdn.jsdelivr.net/npm/@fontsource/montserrat/500.css");
+    @import url("https://cdn.jsdelivr.net/npm/@fontsource/montserrat/800.css");
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0D1B2E;
+      --navy-deep:  #07111E;
+      --navy-mid:   #152338;
+      --blue:       #2B7DE9;
+      --blue-light: #5499F0;
+      --blue-dim:   rgba(43,125,233,0.15);
+      --blue-glow:  rgba(43,125,233,0.07);
+      --white:      #FFFFFF;
+      --white-60:   rgba(255,255,255,0.60);
+      --white-30:   rgba(255,255,255,0.30);
+      --white-08:   rgba(255,255,255,0.08);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--navy-deep);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── Grid background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--blue-glow) 1px, transparent 1px),
+        linear-gradient(90deg, var(--blue-glow) 1px, transparent 1px);
+      background-size: 52px 52px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Glow orb ── */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 40%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(43,125,233,0.12) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 68px;
+      background: var(--navy);
+      border-bottom: 1px solid var(--blue-dim);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 100;
+    }
+
+    nav::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--blue) 35%, var(--blue-light) 65%, transparent 100%);
+      opacity: 0.35;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .nav-logo__mark {
+      width: 40px; height: 40px; flex-shrink: 0;
+    }
+
+    .nav-logo__name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      line-height: 1;
+      display: block;
+    }
+
+    .nav-logo__sub {
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--blue-light);
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Main layout ── */
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 68px 24px 40px;
+      text-align: center;
+    }
+
+    /* ── Large 404 mark ── */
+    .error-mark {
+      position: relative;
+      width: 200px; height: 200px;
+      margin: 0 auto 48px;
+    }
+
+    .error-mark__orbit {
+      width: 100%; height: 100%;
+      animation: spin 18s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .error-mark__code {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .error-mark__code span {
+      color: var(--blue);
+    }
+
+    /* ── Text content ── */
+    .error-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--blue-light);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .error-eyebrow::before,
+    .error-eyebrow::after {
+      content: '';
+      display: block;
+      width: 20px; height: 1.5px;
+      background: var(--blue);
+      border-radius: 1px;
+    }
+
+    .error-title {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .error-sub {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--white-60);
+      line-height: 1.75;
+      max-width: 440px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── Actions ── */
+    .error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blue);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary svg {
+      width: 13px; height: 13px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover svg {
+      transform: translateX(3px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white-60);
+      background: transparent;
+      border: 1px solid var(--blue-dim);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      color: var(--white);
+      border-color: rgba(43,125,233,0.45);
+      background: var(--white-08);
+    }
+
+    /* ── Quick links ── */
+    .error-links {
+      margin-top: 56px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .error-links__label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--white-30);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .error-links a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue-light);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      letter-spacing: 0.3px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .error-links a:hover {
+      border-color: var(--blue-dim);
+      background: var(--white-08);
+    }
+
+    .error-links__sep {
+      color: var(--white-30);
+      font-size: 12px;
+      user-select: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 24px 40px;
+      border-top: 1px solid var(--blue-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    footer span {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--white-30);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-logo__sub { display: none; }
+      .error-mark { width: 150px; height: 150px; }
+      .error-mark__code { font-size: 40px; }
+      .error-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-ghost { justify-content: center; }
+      footer { padding: 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main 404 content -->
+  <main>
+
+    <!-- Animated orbit mark with 404 inside -->
+    <div class="error-mark" aria-hidden="true">
+      <svg class="error-mark__orbit" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Orbit ring -->
+        <circle cx="100" cy="100" r="90" stroke="#2B7DE9" stroke-width="3" stroke-dasharray="12 8" opacity="0.5"/>
+        <!-- Crosshair H -->
+        <rect x="52" y="96" width="96" height="8" rx="4" fill="#2B7DE9" opacity="0.3"/>
+        <!-- Crosshair V -->
+        <rect x="96" y="52" width="8" height="96" rx="4" fill="#2B7DE9" opacity="0.3"/>
+        <!-- Satellite dot — sits on the orbit ring, top -->
+        <circle cx="100" cy="10" r="10" fill="#2B7DE9"/>
+      </svg>
+      <div class="error-mark__code">
+        <span>4</span>0<span>4</span>
+      </div>
+    </div>
+
+    <p class="error-eyebrow">Page Not Found</p>
+
+    <h1 class="error-title">Lost in orbit.</h1>
+
+    <p class="error-sub">
+      The page you're looking for has drifted beyond reach. It may have been moved, renamed, or never existed at this URL.
+    </p>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <span>© 2026 Plus Ultra Software. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
