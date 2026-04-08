@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Black background with rounded corners -->
+  <rect width="32" height="32" rx="7" fill="#000000"/>
+  <!-- Orbit mark scaled to fit: original viewBox 76x76 → 32x32, centered with padding -->
+  <!-- Scale factor ~0.316, offset ~2.5px padding each side -->
+  <g transform="translate(3.2, 3.2) scale(0.3368)">
+    <circle cx="38" cy="38" r="30" stroke="#2B7DE9" stroke-width="2.5"/>
+    <rect x="20" y="35" width="36" height="6" rx="3" fill="#2B7DE9"/>
+    <rect x="35" y="20" width="6" height="36" rx="3" fill="#2B7DE9"/>
+    <circle cx="38" cy="8" r="5" fill="#2B7DE9"/>
+  </g>
+</svg>
