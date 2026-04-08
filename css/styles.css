@@ -795,6 +795,35 @@ input, textarea { font-family: var(--font); }
   transform: translateY(-1px);
 }
 
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-feedback {
+  display: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  line-height: 1.5;
+}
+
+.form-feedback.is-success {
+  display: block;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.form-feedback.is-error {
+  display: block;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
 
 /* ================================================================
    FOOTER
@@ -943,3 +972,23 @@ input, textarea { font-family: var(--font); }
   .cookie-btn { flex: 1; text-align: center; }
   --drawer-w: 85vw;
 }
+
+.form-feedback {
+   font-size: 13px;
+   font-weight: 500;
+   padding: 10px 14px;
+   border-radius: var(--radius);
+   display: none;
+ }
+ .form-feedback.is-success {
+   display: block;
+   color: #4ade80;
+   background: rgba(74, 222, 128, 0.08);
+   border: 1px solid rgba(74, 222, 128, 0.2);
+ }
+ .form-feedback.is-error {
+   display: block;
+   color: #f87171;
+   background: rgba(248, 113, 113, 0.08);
+   border: 1px solid rgba(248, 113, 113, 0.2);
+ }

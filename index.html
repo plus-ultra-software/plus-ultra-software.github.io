@@ -234,7 +234,8 @@
         <p class="section__sub" data-i18n="contact.sub">Tell us about your project and we'll get back to you within one business day.</p>
 
         <div class="contact__grid">
-          <form class="contact__form" onsubmit="return false;" novalidate>
+          <form class="contact__form" novalidate>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="form-group">
               <label for="formName" data-i18n="form.name">Full Name</label>
               <input id="formName" type="text" name="name" autocomplete="name" required aria-required="true" />
@@ -258,6 +259,7 @@
                 <polyline points="8,2 13,7 8,12"/>
               </svg>
             </button>
+            <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
           </form>
         </div>
       </div>

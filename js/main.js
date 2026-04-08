@@ -51,6 +51,9 @@
       'form.phone':           'Phone Number',
       'form.message':         'Message',
       'form.submit':          'Send Message',
+      'form.sending':         'Sending…',
+      'form.success':         'Message sent! We\'ll get back to you within one business day.',
+      'form.error':           'Something went wrong. Please try again or email us directly.',
       'footer.copy':          '© 2026 Plus Ultra Software. All rights reserved.',
       'cookie.msg':           '<strong>We use cookies.</strong> We use cookies to improve your experience on our site. You can accept all cookies or reject non-essential ones.',
       'cookie.accept':        'Accept All',
@@ -96,6 +99,9 @@
       'form.phone':           'Símanúmer',
       'form.message':         'Skilaboð',
       'form.submit':          'Senda Skilaboð',
+      'form.sending':         'Senda…',
+      'form.success':         'Skilaboð send! Við svörum innan eins virkis dags.',
+      'form.error':           'Eitthvað fór úrskeiðis. Vinsamlegast reyndu aftur eða sendu okkur tölvupóst beint.',
       'footer.copy':          '© 2026 Plus Ultra Software. Öll réttindi áskilin.',
       'cookie.msg':           '<strong>Við notum vafrakökur.</strong> Við notum vafrakökur til að bæta upplifun þína. Þú getur samþykkt allar vafrakökur eða hafnað ónauðsynlegum.',
       'cookie.accept':        'Samþykkja Allt',
@@ -238,6 +244,49 @@
     localStorage.setItem('pus_cookies', 'rejected');
     hideCookieBanner();
   });
+
+  /* ── Contact form ───────────────────────────────────────── */
+  const contactForm   = document.querySelector('.contact__form');
+  const formFeedback  = document.getElementById('formFeedback');
+  const formSubmitBtn = contactForm ? contactForm.querySelector('.form-submit') : null;
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const t = i18n[currentLang];
+      const submitSpan = formSubmitBtn.querySelector('span');
+
+      /* loading state */
+      formSubmitBtn.disabled = true;
+      submitSpan.textContent = t['form.sending'];
+      formFeedback.className = 'form-feedback';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xojpzqgw', {
+          method:  'POST',
+          body:    new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          contactForm.reset();
+          formFeedback.textContent = t['form.success'];
+          formFeedback.className   = 'form-feedback is-success';
+        } else {
+          throw new Error('server');
+        }
+      } catch {
+        formFeedback.textContent = t['form.error'];
+        formFeedback.className   = 'form-feedback is-error';
+      }
+
+      /* restore button */
+      formSubmitBtn.disabled  = false;
+      submitSpan.dataset.i18n = 'form.submit';
+      submitSpan.textContent  = t['form.submit'];
+    });
+  }
 
   /* ── Init ────────────────────────────────────────────────── */
   function init() {
