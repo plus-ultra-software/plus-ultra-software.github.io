@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="tool-html">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUID / UUID Generator | Plus Ultra Software</title>
+  <meta name="description" content="Generate random GUIDs/UUIDs instantly with customizable options. Fast, free, and secure.">
+  <link rel="icon" href="/guid-generator/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/guid-generator/assets/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <style>
+    /* GUID specific styles extending the base theme */
+    textarea.pw-display {
+      width: 100%;
+      background: transparent;
+      border: none;
+      resize: none;
+      outline: none;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--blue-dim) transparent;
+    }
+    textarea.pw-display::-webkit-scrollbar {
+      width: 6px;
+    }
+    textarea.pw-display::-webkit-scrollbar-thumb {
+      background-color: var(--blue-dim);
+      border-radius: 3px;
+    }
+    .info-card {
+      margin-top: 24px;
+      padding: 32px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--white-60);
+    }
+    .info-card h2 {
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .info-card p {
+      margin-bottom: 16px;
+    }
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+    .info-card code {
+      background: var(--navy-deep);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: var(--blue-light);
+    }
+    .info-card strong {
+      color: var(--white);
+    }
+    
+    /* Number input styling */
+    .number-input-wrap {
+      display: flex;
+      align-items: center;
+      background: var(--white-04);
+      border: 1px solid var(--blue-dim);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100px;
+    }
+    .number-input-wrap input {
+      flex: 1;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--blue-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-align: center;
+      outline: none;
+      padding: 6px 0;
+      -moz-appearance: textfield;
+    }
+    .number-input-wrap input::-webkit-outer-spin-button,
+    .number-input-wrap input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .number-input-btn {
+      background: var(--blue-dim);
+      border: none;
+      color: var(--white);
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .number-input-btn:hover {
+      background: var(--blue);
+    }
+  </style>
+</head>
+<body class="tool-page">
+  <nav>
+    <a class="nav-logo" href="/">
+      <img class="nav-logo__mark" src="/guid-generator/assets/orbit-mark.svg" alt="" aria-hidden="true" />
+      <div>
+        <span class="nav-logo__name">Plus Ultra</span>
+        <span class="nav-logo__sub">Software</span>
+      </div>
+    </a>
+  </nav>
+
+  <main>
+    <div class="card">
+      <p class="card__eyebrow">Developer Tool</p>
+      <h1 class="card__title">GUID Generator</h1>
+
+      <div class="pw-display-wrap">
+        <textarea class="pw-display" id="guid-output" aria-live="polite" aria-label="Generated GUIDs" readonly></textarea>
+        <button class="btn-copy" id="btn-copy" aria-label="Copy GUIDs to clipboard">
+          <svg id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          <svg id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span class="copy-tooltip" aria-hidden="true">Copied!</span>
+        </button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="control-row">
+        <div class="control-label">
+          <span class="control-label__text">Number of GUIDs</span>
+          <div class="number-input-wrap">
+            <button class="number-input-btn" id="btn-decrease" aria-label="Decrease" type="button">-</button>
+            <input type="number" id="guid-count" min="1" max="1000" value="1" aria-label="Number of GUIDs to generate" />
+            <button class="number-input-btn" id="btn-increase" aria-label="Increase" type="button">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="options-grid" role="group" aria-label="Generation Options">
+        <div class="option active" data-key="hyphens" role="checkbox" aria-checked="true" tabindex="0">
+          <span class="option__label">Include Hyphens</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </div>
+        <div class="option" data-key="braces" role="checkbox" aria-checked="false" tabindex="0">
+          <span class="option__label">Braces {}</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </div>
+        <div class="option" data-key="uppercase" role="checkbox" aria-checked="false" tabindex="0">
+          <span class="option__label">Uppercase</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </div>
+        <div class="option" data-key="quotes" role="checkbox" aria-checked="false" tabindex="0">
+          <span class="option__label">Quotes ""</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </div>
+        <div class="option" data-key="commas" role="checkbox" aria-checked="false" tabindex="0">
+          <span class="option__label">Comma Separated</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <button class="btn-generate" id="btn-generate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        Generate GUIDs
+      </button>
+    </div>
+
+    <div class="card info-card">
+      <h2>What is a GUID?</h2>
+      <p>A <strong>Globally Unique Identifier (GUID)</strong> or <strong>Universally Unique Identifier (UUID)</strong> is a 128-bit number used to identify information in computer systems. The term GUID generally refers to Microsoft's implementation of the UUID standard.</p>
+      <p>They are represented as 32 hexadecimal digits, displayed in five groups separated by hyphens, in the form <code>8-4-4-4-12</code> for a total of 36 characters (32 alphanumeric characters and 4 hyphens).</p>
+      <p>The total number of possible UUIDs is 2<sup>122</sup>, which means the probability of generating a duplicate UUID is essentially zero, making them ideal for unique database keys, tracking sessions, or transaction IDs without requiring a central authority to coordinate.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Plus Ultra Software. All rights reserved.</span>
+  </footer>
+
+  <script src="/guid-generator/js/script.js"></script>
+</body>
+</html>
