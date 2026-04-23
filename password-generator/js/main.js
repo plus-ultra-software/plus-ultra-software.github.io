@@ -83,11 +83,11 @@
   function buildNav() {
     const nav = document.createElement('nav');
     nav.innerHTML = `
-      <a class="nav-logo" href="/">
-        <img class="nav-logo__mark" src="/password-generator/assets/orbit-mark.svg" alt="" aria-hidden="true" />
-        <div>
-          <span class="nav-logo__name">Plus Ultra</span>
-          <span class="nav-logo__sub">Software</span>
+      <a class="pus-logo" href="/">
+        <img class="pus-logo__mark" src="/password-generator/assets/orbit-mark.svg" alt="Plus Ultra Software" width="42" height="42" aria-hidden="true" />
+        <div class="pus-logo__text">
+          <span class="pus-logo__name">Plus Ultra</span>
+          <span class="pus-logo__sub">Software</span>
         </div>
       </a>`;
     return nav;

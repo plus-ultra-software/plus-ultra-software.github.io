@@ -34,12 +34,35 @@
       line-height: 1.6;
       color: var(--white-60);
     }
+    .info-card summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      outline: none;
+    }
+    .info-card summary::-webkit-details-marker {
+      display: none;
+    }
     .info-card h2 {
       font-size: 14px;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 0;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+    .info-card svg.chevron {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+      color: var(--blue-light);
+    }
+    .info-card[open] svg.chevron {
+      transform: rotate(180deg);
+    }
+    .info-card__content {
+      margin-top: 24px;
     }
     .info-card p {
       margin-bottom: 16px;
@@ -105,11 +128,11 @@
 </head>
 <body class="tool-page">
   <nav>
-    <a class="nav-logo" href="/">
-      <img class="nav-logo__mark" src="/guid-generator/assets/orbit-mark.svg" alt="" aria-hidden="true" />
-      <div>
-        <span class="nav-logo__name">Plus Ultra</span>
-        <span class="nav-logo__sub">Software</span>
+    <a class="pus-logo" href="/">
+      <img class="pus-logo__mark" src="/guid-generator/assets/orbit-mark.svg" alt="Plus Ultra Software" width="42" height="42" aria-hidden="true" />
+      <div class="pus-logo__text">
+        <span class="pus-logo__name">Plus Ultra</span>
+        <span class="pus-logo__sub">Software</span>
       </div>
     </a>
   </nav>
@@ -177,12 +200,17 @@
       </button>
     </div>
 
-    <div class="card info-card">
-      <h2>What is a GUID?</h2>
-      <p>A <strong>Globally Unique Identifier (GUID)</strong> or <strong>Universally Unique Identifier (UUID)</strong> is a 128-bit number used to identify information in computer systems. The term GUID generally refers to Microsoft's implementation of the UUID standard.</p>
-      <p>They are represented as 32 hexadecimal digits, displayed in five groups separated by hyphens, in the form <code>8-4-4-4-12</code> for a total of 36 characters (32 alphanumeric characters and 4 hyphens).</p>
-      <p>The total number of possible UUIDs is 2<sup>122</sup>, which means the probability of generating a duplicate UUID is essentially zero, making them ideal for unique database keys, tracking sessions, or transaction IDs without requiring a central authority to coordinate.</p>
-    </div>
+    <details class="card info-card">
+      <summary>
+        <h2>What is a GUID?</h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </summary>
+      <div class="info-card__content">
+        <p>A <strong>Globally Unique Identifier (GUID)</strong> or <strong>Universally Unique Identifier (UUID)</strong> is a 128-bit number used to identify information in computer systems. The term GUID generally refers to Microsoft's implementation of the UUID standard.</p>
+        <p>They are represented as 32 hexadecimal digits, displayed in five groups separated by hyphens, in the form <code>8-4-4-4-12</code> for a total of 36 characters (32 alphanumeric characters and 4 hyphens).</p>
+        <p>The total number of possible UUIDs is 2<sup>122</sup>, which means the probability of generating a duplicate UUID is essentially zero, making them ideal for unique database keys, tracking sessions, or transaction IDs without requiring a central authority to coordinate.</p>
+      </div>
+    </details>
   </main>
 
   <footer>
