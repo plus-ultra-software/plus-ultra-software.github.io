@@ -247,6 +247,7 @@
     document.body.appendChild(buildMain());
     document.body.appendChild(buildFooter());
     wireEvents();
+    onGenerate();
   }
 
   if (document.readyState === 'loading') {
